@@ -17,8 +17,8 @@
     <string name="annuler">Annuler</string>
     <string name="valider">Valider</string>
     <string-array name="etat_ciel">
-            <item>dégagé</item>
-            <item>couvert</item>
-            <item>pluvieux</item>
-        </string-array>
+        <item>dégagé</item>
+        <item>couvert</item>
+        <item>pluvieux</item>
+    </string-array>
 </resources>
