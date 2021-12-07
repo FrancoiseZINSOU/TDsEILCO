@@ -1,0 +1,24 @@
+<resources>
+    <string name="ok">OK</string>
+    <string name="annuler_tout">Annuler tout</string>
+    <string name="mdp">Mot de passe</string>
+    <string name="app_name">TD2</string>
+    <string name="salut">Salut tout le monde</string>
+    <string name="entree">ENTREE</string>
+    <string name="entree_">Ex: salade froide</string>
+    <string name="plat_principal">PLAT PRINCIPAL </string>
+    <string name="plat_">Ex: Pâtes bolognaises</string>
+    <string name="accompagnement">ACCOMPAGNEMENT</string>
+    <string name="fromage">Fromage</string>
+    <string name="fruit">Fruit</string>
+    <string name="time">MOMENT</string>
+    <string name="midi">Midi</string>
+    <string name="soir">Soir</string>
+    <string name="annuler">Annuler</string>
+    <string name="valider">Valider</string>
+    <string-array name="etat_ciel">
+            <item>dégagé</item>
+            <item>couvert</item>
+            <item>pluvieux</item>
+        </string-array>
+</resources>
