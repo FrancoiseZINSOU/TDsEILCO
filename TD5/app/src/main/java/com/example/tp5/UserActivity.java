@@ -30,6 +30,7 @@ public class UserActivity extends AppCompatActivity {
         contacts.add(new Contact("Zinedine","Zidane","https://upload.wikimedia.org/wikipedia/commons/7/7c/Zidane_Zizu.jpg"));
         contacts.add(new Contact("Yannick","Noah","https://www.premium-communication.fr/cache/b/8/b/0/d/b8b0dbc2e29d285808fd096a30de721fc45fe9b1.jpeg"));
 
+
         // Création d'un adapter avec initialisation du contructeur avec notre liste de contacts
         ContactsAdapter adapter = new ContactsAdapter(contacts);
 
