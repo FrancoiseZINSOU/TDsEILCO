@@ -9,6 +9,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TP">
         <activity
+            android:name=".DetailsActivity"
+            android:exported="false"
+            android:label="Detail"/>
+
+        <activity
             android:name=".UpcomingActivity"
             android:exported="false" />
         <activity
@@ -21,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Popular Movies</string>
+    <string name="textDetail">TextView</string>
+    <string name="textReleaseDate">Release Date :</string>
+    <string name="releaseDate">je suis la</string>
+    <string name="textGenre">Genre :</string>
 </resources>
