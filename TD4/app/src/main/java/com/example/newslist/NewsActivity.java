@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,15 @@ public class NewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news);
         setTitle(getLocalClassName());
+
+        //Recupérer le login et l'afficher
+        Intent intentRecup = getIntent();
+        String loginR;
+        if (intentRecup.hasExtra("login")) {
+            loginR = intentRecup.getStringExtra("login");
+            TextView t = (TextView) findViewById(R.id.affichLog);
+            t.setText(loginR);
+        }
 
 
         Button detailButton = (Button) findViewById(R.id.details);
