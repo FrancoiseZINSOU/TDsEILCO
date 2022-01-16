@@ -1,12 +1,23 @@
 package com.example.tp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
+
+
+import android.content.res.Resources;
+
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,6 +26,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MoviesActivity extends AppCompatActivity {
+
+    Resources resources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +39,11 @@ public class MoviesActivity extends AppCompatActivity {
 
         Button popularButton = findViewById(R.id.popular);
         Button upComingButton = findViewById(R.id.upcoming);
+        Button searchButton = findViewById(R.id.search);
+
+        popularButton.setBackgroundColor(Color.BLACK);
+        upComingButton.setBackgroundColor(Color.BLACK);
+        searchButton.setBackgroundColor(Color.BLACK);
 
         popularButton.setOnClickListener(v -> {
             setTitle("Popular Movies");
@@ -37,10 +55,21 @@ public class MoviesActivity extends AppCompatActivity {
             appelRx("upcoming"); //recup les films upcoming
         });
 
+        searchButton.setOnClickListener(v -> {
+
+            Intent intent = new Intent(MoviesActivity.this, SearchActivity.class);
+            startActivity(intent);
+            finish();
+            //appelRx("upcoming"); //recup les films upcoming
+        });
+
     }
 
     // Creation d'une fonction pour l'appel rx
     public void appelRx(String type){
+
+        resources = this.getResources();
+        String lang = resources.getString(R.string.language);
 
         RecyclerView rvMovies = (RecyclerView)  findViewById(R.id.rvMovies);
 
@@ -50,7 +79,7 @@ public class MoviesActivity extends AppCompatActivity {
                 .build()
                 .create(MovieService.class);
 
-        movieService.listMovies(type).enqueue(new Callback<MoviesList>(){
+        movieService.listMovies(type,lang).enqueue(new Callback<MoviesList>(){
 
             MoviesList popularMovies = new MoviesList();
             @Override
@@ -87,5 +116,48 @@ public class MoviesActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+
+            case R.id.langFR:
+                setLocalLang("fr");
+                appelRx("popular");
+                resources = getBaseContext().getResources();
+                Toast.makeText(getApplicationContext(), ""+resources.getString(R.string.language), Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.langEN:
+                setLocalLang("en");
+                appelRx("popular");
+                resources = getBaseContext().getResources();
+                Toast.makeText(getApplicationContext(), ""+resources.getString(R.string.language), Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.lang_title_bar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //Permet de changer la langue locale
+    public void setLocalLang(String lang){
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+        
     }
 }

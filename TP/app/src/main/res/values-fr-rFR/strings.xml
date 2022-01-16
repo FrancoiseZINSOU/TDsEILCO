@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Films populaires</string>
+    <string name="textDetail">TextView</string>
+    <string name="textReleaseDate">Date de publication :</string>
+    <string name="releaseDate">je suis la</string>
+    <string name="textGenre">Genre :</string>
+    <string name="popular">Populaire</string>
+    <string name="upcoming">à venir</string>
+    <string name="detail">detail</string>
+    <string name="search">Recherche</string>
+    <string name="language">fr-FR</string>
+</resources>

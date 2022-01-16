@@ -10,7 +10,8 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@color/black"/>
 
     <Button
         android:id="@+id/popular"
@@ -22,7 +23,8 @@
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/button_nav"
-        android:textColor="#7E7370"
+        android:textColor="@color/white"
+        android:textSize="13dp"
         />
     <Button
         android:id="@+id/upcoming"
@@ -30,10 +32,22 @@
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@id/search"
         app:layout_constraintStart_toEndOf="@id/popular"
         android:text="@string/upcoming"
         android:background="@drawable/button_nav"
-        android:textColor="#7E7370"/>
+        android:textColor="@color/white"
+        android:textSize="13dp"/>
+    <Button
+        android:id="@+id/search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/upcoming"
+        android:text="@string/search"
+        android:background="@drawable/button_nav"
+        android:textColor="@color/white"
+        android:textSize="13dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

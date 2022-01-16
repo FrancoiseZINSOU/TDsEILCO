@@ -6,4 +6,7 @@
     <string name="textGenre">Genre :</string>
     <string name="popular">Popular</string>
     <string name="upcoming">Upcoming</string>
+    <string name="detail">detail</string>
+    <string name="search">Search</string>
+    <string name="language">en-US</string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.tp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.ArrayAdapter;
@@ -39,6 +40,9 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
+        Resources resources = this.getResources();
+        String lang = resources.getString(R.string.language);
+
         // Permet de construire l'outil d'appel de l'API
         MovieService movieService = new Retrofit.Builder()
                 .baseUrl(MovieService.ENDPOINT)
@@ -57,10 +61,10 @@ public class DetailsActivity extends AppCompatActivity {
         String titre = intent.getStringExtra("titre");
         setTitle(titre);
 
-        //Toast.makeText(this,id,Toast.LENGTH_LONG).show();
+       //Toast.makeText(this,lang,Toast.LENGTH_LONG).show();
 
         //Appel Rx avec ID du film
-        movieService.detailMovie(id).enqueue(new Callback<DetailM>() {
+        movieService.detailMovie(id,lang).enqueue(new Callback<DetailM>() {
             @Override
             public void onResponse(Call<DetailM> call, Response<DetailM> response) {
 
